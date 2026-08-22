@@ -27,7 +27,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 bat '''
-                    "C:\\Users\\DELL\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name spring-cache-container -p 8080:8080 spring-cache-app
+                    "C:\\Users\\DELL\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name spring-cache-container  --network mynetwork -p 8080:8080 spring-cache-app
                 '''
             }
         }
