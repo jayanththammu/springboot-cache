@@ -11,15 +11,15 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t spring-cache-app .'
+                bat '"C:\\Users\\DELL\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t spring-cache-app .'
             }
         }
 
         stage('Stop Old Container') {
             steps {
                 bat '''
-                    docker stop spring-cache-container 2>nul || exit /b 0
-                    docker rm spring-cache-container 2>nul || exit /b 0
+                    "C:\\Users\\DELL\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop spring-cache-container 2>nul || exit /b 0
+                    "C:\\Users\\DELL\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm spring-cache-container 2>nul || exit /b 0
                 '''
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 bat '''
-                    docker run -d --name spring-cache-container -p 8080:8080 spring-cache-app
+                    "C:\\Users\\DELL\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name spring-cache-container -p 8080:8080 spring-cache-app
                 '''
             }
         }
